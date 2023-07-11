@@ -1,36 +1,23 @@
-import path from 'path'
 import webpack from 'webpack'
+import {buildPlugins} from "./config/build/buildPlugins";
+import {buildLoaders} from "./config/build/buildLoaders";
+import {buildResolvers} from "./config/build/buildResolvers";
+import {buildWebpackConfig} from "./config/build/buildWebpackConfig";
+import {BuildPath} from "./config/build/types/config";
+import path from "path";
 
 
-const config: webpack.Configuration = {
-    mode: "development",
+const paths: BuildPath = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            compilerOptions: {
-                                noEmit: false,
-                            },
-                        },
-                    }
-                ],
-                exclude: /node_modules/,
-            },
-        ],
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-    output: {
-        filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'build'),
-        clean: true,
-    },
+    build: path.resolve(__dirname, 'build'),
+    html: path.resolve(__dirname, 'public', 'index.html')
 }
+const mode = 'development';
+const isDev = mode === 'development';
+const config: webpack.Configuration = buildWebpackConfig({
+    mode: "development",
+    paths,
+    isDev
+})
 
 export default config;

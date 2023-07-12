@@ -3,10 +3,14 @@
   padding: 0px;
 }
 
+.last_pading{
+  padding-bottom: 207px;
+}
+
 .back{
   background-repeat: no-repeat;
   background-image: url("../../assets/img/Hero.png");
-  background-size: cover  ;
+  background-size: cover;
 
 }
 
@@ -21,8 +25,21 @@
   column-gap: 9px;
   padding-bottom: 7px;
 }
-.info p{
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: white;
+
+.ps{
+  width: 508px;
+  vertical-align: bottom;
+  padding-top: 24px;
+  padding-bottom: 52px;
+}
+
+.searcher{
+  background: white;
+  border-radius: 61px;
+  width: 919px;
+  height: 88px;
+}
+
+.searcher_container{
+  padding: 40px 20px 14px;
 }

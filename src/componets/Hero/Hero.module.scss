@@ -1,17 +1,28 @@
-body{
-  background-image: url("../../assets/img/Hero.png");
-  background-size: auto;
+*{
+  margin: 0px;
+  padding: 0px;
 }
 
 .back{
+  background-repeat: no-repeat;
   background-image: url("../../assets/img/Hero.png");
-  background-size: auto;
-  width: 1920px;
-  height: 833px;
+  background-size: cover  ;
+
 }
 
-.hero-info{
+.content{
+  padding-top: 209px;
+  padding-left: 218px;
+}
+
+.info{
+  display: flex;
+  align-items: center;
+  column-gap: 9px;
+  padding-bottom: 7px;
+}
+.info p{
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   color: white;
-  text-align: left;
-  padding: 100px;
 }

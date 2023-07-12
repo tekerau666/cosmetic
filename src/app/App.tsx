@@ -1,9 +1,9 @@
-import './App.css';
+import './styles/App.css';
 import {Route, Routes} from "react-router-dom";
-import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
-import {MainPageAsync} from "./pages/MainPage/MainPage.async";
 import {Suspense} from "react";
-import {Spinner} from "@nextui-org/react";
+import './styles/index.css';
+import {AboutPageAsync} from "pages/AboutPage";
+import {MainPageAsync} from "pages/MainPage";
 
 function App() {
     return (
@@ -17,5 +17,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

@@ -14,12 +14,12 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         module: {
             rules: buildLoaders()
         },
-        resolve: buildResolvers(),
         output: {
             filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
         },
         plugins: buildPlugins(options),
+        resolve: buildResolvers(options),
     }
 }

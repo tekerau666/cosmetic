@@ -1,5 +1,6 @@
 import {ResolveOptions} from "webpack";
 import {BuildOptions} from "./types/config";
+import path from "path";
 
 
 export function buildResolvers(options: BuildOptions): ResolveOptions {
@@ -8,7 +9,8 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         preferAbsolute: true,
         modules: [options.paths.src, 'node-modules'],
         mainFiles: ['index'],
-        // указание каким образом будет происходить абсолютное обращение
-        alias: {}
+        alias: {
+            '@/': path.resolve(__dirname, 'src'),
+        }
     }
 }

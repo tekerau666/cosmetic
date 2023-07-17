@@ -20,9 +20,11 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "noImplicitAny": true,
-    "baseUrl": ".",
+    "include": [
+      "src"
+    ],
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "ts-node": {

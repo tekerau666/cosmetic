@@ -1,5 +1,5 @@
-import { AboutPageAsync } from "@/pages/AboutPage/ui/AboutPage.async";
-import { MainPageAsync } from "@/pages/MainPage/ui/MainPage.async";
+import { AboutPageAsync } from "../../../pages/AboutPage/index";
+import { MainPageAsync } from "../../../pages/MainPage/index";
 import {RouteProps} from "react-router-dom";
 
 export enum AppRoutes {

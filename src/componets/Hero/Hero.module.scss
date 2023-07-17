@@ -73,7 +73,7 @@
 .searcher_button_content{
   font-size: 24px;
   border: none;
-  width: 211px;
+  width: 200px;
   height: 66px;
   border-radius: 56px;
   background-color: #BA7894;
@@ -81,5 +81,7 @@
   display: flex;
   align-items: center;
   column-gap: 23px;
-  padding: 14px 40px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 40px;
 }

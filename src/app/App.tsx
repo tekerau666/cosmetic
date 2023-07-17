@@ -1,20 +1,18 @@
-import './styles/App.css';
-import {Route, Routes} from "react-router-dom";
-import {Suspense} from "react";
-import './styles/index.css';
-import {AboutPageAsync} from "pages/AboutPage";
-import {MainPageAsync} from "pages/MainPage";
+import React, {Suspense} from 'react';
+import {Link, Route, Routes} from 'react-router-dom';
+import { AppRouter } from './providers/router';
+import './styles/index.scss';
 
-function App() {
+
+const App = () => {
+
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path={'/about'} element={<AboutPageAsync/>}/>
-                    <Route path={'/'} element={<MainPageAsync/>}/>
-                </Routes>
+            <Suspense fallback={<div>Sucking...</div>}>
+                <AppRouter/>
             </Suspense>
         </div>
     );
-}
+};
+
 export default App;

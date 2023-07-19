@@ -1,8 +1,8 @@
 import style from './Hero.module.scss'
-import logoImg from '../../assets/svg/Vector.svg'
-import locationImg from '../../assets/svg/location.svg'
-import searchImg from '../../assets/svg/search.svg'
-import secondSearchImg from '../../assets/svg/whiteSearch.svg'
+import logoImg from '../../shared/assets/svg/Vector.svg'
+import locationImg from '../../shared/assets/svg/location.svg'
+import searchImg from '../../shared/assets/svg/search.svg'
+import secondSearchImg from '../../shared/assets/svg/whiteSearch.svg'
 import { Text } from '@nextui-org/react';
 import React from 'react';
 

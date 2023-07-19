@@ -3,16 +3,17 @@ import { AppRouter } from './providers/router';
 import './styles/index.scss';
 import {Navbar} from "../widgets/Navbar";
 import {useTheme} from "./providers/ThemeProvider/lib/useTheme";
+import {classNames} from "../shared/lib/classNames/classNames"
 
 
 
 const App = () => {
-    const {theme, toggleTheme} = useTheme();
+    const { theme } = useTheme();
+
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<div>Sucking...</div>}>
                 <Navbar/>
-                <button onClick={toggleTheme}>TOGGLE</button>
                 <AppRouter/>
             </Suspense>
         </div>

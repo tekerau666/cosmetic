@@ -1,14 +1,18 @@
 import React, {Suspense} from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
+import {Navbar} from "../widgets/Navbar";
+import {useTheme} from "./providers/ThemeProvider/lib/useTheme";
+
 
 
 const App = () => {
-
+    const {theme, toggleTheme} = useTheme();
     return (
-        <div>
+        <div className={`app ${theme}`}>
             <Suspense fallback={<div>Sucking...</div>}>
+                <Navbar/>
+                <button onClick={toggleTheme}>TOGGLE</button>
                 <AppRouter/>
             </Suspense>
         </div>

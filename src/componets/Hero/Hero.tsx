@@ -3,7 +3,7 @@ import logoImg from '../../assets/svg/Vector.svg'
 import locationImg from '../../assets/svg/location.svg'
 import searchImg from '../../assets/svg/search.svg'
 import secondSearchImg from '../../assets/svg/whiteSearch.svg'
-import { Text} from '@nextui-org/react';
+import { Text } from '@nextui-org/react';
 import React from 'react';
 
 

@@ -4,6 +4,7 @@ import './styles/index.scss';
 import {Navbar} from "../widgets/Navbar";
 import {useTheme} from "./providers/ThemeProvider/lib/useTheme";
 import {classNames} from "../shared/lib/classNames/classNames"
+import {Sidebar} from "../widgets/Sidebar/index";
 
 
 
@@ -12,10 +13,11 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={<div>Sucking...</div>}>
                 <Navbar/>
+            <div className="content-page">
+                <Sidebar/>
                 <AppRouter/>
-            </Suspense>
+            </div>
         </div>
     );
 };

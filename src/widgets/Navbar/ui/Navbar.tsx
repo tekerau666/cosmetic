@@ -1,41 +1,27 @@
-import {Link} from "react-router-dom";
-import cls from './Navbar.module.scss'
-import {AppLink, AppLinkTheme} from "../../../shared/ui/AppLink/AppLink";
-import {ThemeSwitcher} from "../../ThemeSwitcher/index";
-
+import {classNames} from "shared/lib/classNames/classNames";
+import cls from './Navbar.module.scss';
+import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
 
 interface NavbarProps {
-
+    className?: string;
 }
 
-export const Navbar = () => {
-	return (
-		<>
-			<div className={cls.navbar}>
-				<div className={cls.links}>
-					<AppLink
-						theme={AppLinkTheme.SECONDARY}
-						to='/'
-						className={cls.mainLink}
-					>
-						Главная
-					</AppLink>
+export const Navbar = ({className}: NavbarProps) => {
 
-					<AppLink
-						theme={AppLinkTheme.SECONDARY}
-						to='/about'
-					>
-						О сайте
-					</AppLink>
+    return (
+        <div className={classNames(cls.Navbar, {}, [className])}>
+            <div className={cls.links}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={cls.mainLink}>
+                    Главная
+                </AppLink>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={'/about'}>
+                    О сайте
+                </AppLink>
+            </div>
+        </div>
+    );
+};
 
-					<AppLink
-						theme={AppLinkTheme.SECONDARY}
-						to='#'
-					>
-						Cвязаться с нами
-					</AppLink>
-				</div>
-			</div>
-		</>
-	)
-}
+
+
+

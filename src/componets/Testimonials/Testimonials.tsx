@@ -20,7 +20,7 @@ export function Testimonials(){
                         </div>
                         <div className={style.quote_container}>
                             <div className={style.quote_content}>
-                                <OpenHeading className={style.left_mark} />
+                                <OpenHeading />
                                 <div>
                                     <p>Leslie Alexander</p>
                                     <text className={style.quote_small}>Moncton, Canada</text>
@@ -29,7 +29,7 @@ export function Testimonials(){
                                     <h4>Neque porro quisquam est qui dolum</h4>
                                     <text className={style.quote_large}>“It is a long established fact that a reader will be tracked distracted by the readable content of a page is when looking at its layout. The point of using Lorem of distribution it look like readable English“</text>
                                 </div>
-                                <CloseHeading className={style.right_mark}/>
+                                <CloseHeading />
                             </div>
                         </div>
                     </div>

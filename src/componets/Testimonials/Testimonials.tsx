@@ -1,8 +1,10 @@
 import style from './Testimonials.module.scss';
-import ellipse from '../../assets/img/Ellipse.png';
-import OpenHeading from '../../assets/svg/open.svg';
-import CloseHeading from '../../assets/svg/close.svg'
-import {Text} from "@nextui-org/react";
+import ellipse from '../../shared/assets/img/Ellipse.png';
+import OpenHeading from '../../shared/assets/svg/open.svg';
+import CloseHeading from '../../shared/assets/svg/close.svg'
+import LeftArrow from '../../shared/assets/svg/chevron-left.svg'
+import RightArrow from '../../shared/assets/svg/chevron-right.svg'
+
 export function Testimonials(){
     return(
         <>
@@ -35,7 +37,8 @@ export function Testimonials(){
                     </div>
                 </div>
                 <div className={style.content_nav}>
-
+                    <LeftArrow className={style.content_nav_last}/>
+                    <RightArrow className={style.content_nav_next}/>
                 </div>
             </div>
         </>

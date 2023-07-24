@@ -1,12 +1,12 @@
-import style from './Testimonials.module.scss';
-import ellipse from '../../shared/assets/img/Ellipse.png';
-import OpenHeading from '../../shared/assets/svg/open.svg';
-import CloseHeading from '../../shared/assets/svg/close.svg'
-import LeftArrow from '../../shared/assets/svg/chevron-left.svg'
-import RightArrow from '../../shared/assets/svg/chevron-right.svg'
+import style from './Testimonials.module.scss'
+import ellipse from '../../../../cosmetic/src/shared/assets/img/Ellipse.png'
+import OpenHeading from '../../../../cosmetic/src/shared/assets/svg/open.svg'
+import CloseHeading from '../../../../cosmetic/src/shared/assets/svg/close.svg'
+import LeftArrow from '../../../../cosmetic/src/shared/assets/svg/chevron-left.svg'
+import RightArrow from '../../../../cosmetic/src/shared/assets/svg/chevron-right.svg'
 
-export function Testimonials(){
-    return(
+export function Testimonials () {
+  return (
         <>
             <div className={style.container}>
                 <div className={style.heading}>
@@ -42,6 +42,6 @@ export function Testimonials(){
                 </div>
             </div>
         </>
-    )
+  )
 }
-export default Testimonials;
+export default Testimonials

@@ -1,17 +1,16 @@
 import style from './Category.module.scss'
-import React from "react";
-import wellnes from '../../shared/assets/img/categorys/wellnes.png';
-import make from '../../shared/assets/img/categorys/makeup.png'
-import barber from '../../shared/assets/img/categorys/barber.png'
-import frisor from '../../shared/assets/img/categorys/frie.png'
-import massage from '../../shared/assets/img/categorys/massage.png'
-import foot from '../../shared/assets/img/categorys/foot.png'
-import Left from '../../shared/assets/svg/left.svg';
-import Right from '../../shared/assets/svg/right.svg'
-import CategoryElement from '../Category/CategoryElement';
-export function Category (){
-
-    return(
+import React from 'react'
+import wellnes from '../../../../cosmetic/src/shared/assets/img/categorys/wellnes.png'
+import make from '../../../../cosmetic/src/shared/assets/img/categorys/makeup.png'
+import barber from '../../../../cosmetic/src/shared/assets/img/categorys/barber.png'
+import frisor from '../../../../cosmetic/src/shared/assets/img/categorys/frie.png'
+import massage from '../../../../cosmetic/src/shared/assets/img/categorys/massage.png'
+import foot from '../../../../cosmetic/src/shared/assets/img/categorys/foot.png'
+import Left from '../../../../cosmetic/src/shared/assets/svg/left.svg'
+import Right from '../../../../cosmetic/src/shared/assets/svg/right.svg'
+import CategoryElement from './CategoryElement'
+export function Category () {
+  return (
         <>
             <div className={style.container}>
                 <div className={style.category_bar}>
@@ -26,11 +25,7 @@ export function Category (){
                 </div>
             </div>
         </>
-    );
+  )
 }
 
-
-
-
-
-export default Category;
+export default Category

@@ -1,20 +1,18 @@
 import style from './Hero.module.scss'
-import LogoImg from '../../shared/assets/svg/Vector.svg'
-import LocationImg from '../../shared/assets/svg/location.svg'
-import SearchImg from '../../shared/assets/svg/search.svg'
-import SecondSearchImg from '../../shared/assets/svg/whiteSearch.svg'
-import { Text } from '@nextui-org/react';
-import React from 'react';
+import LogoImg from '../../../../cosmetic/src/shared/assets/svg/Vector.svg'
+import LocationImg from '../../../../cosmetic/src/shared/assets/svg/location.svg'
+import SearchImg from '../../../../cosmetic/src/shared/assets/svg/search.svg'
+import SecondSearchImg from '../../../../cosmetic/src/shared/assets/svg/whiteSearch.svg'
+import { Text } from '@nextui-org/react'
+import React from 'react'
 
-
-
-function Hero(){
-    return(
+function Hero () {
+  return (
         <div className={style.back}>
             <div className={style.content}>
                 <div className={style.info}>
                     <LogoImg/>
-                    <Text transform='uppercase'  color='white' size={15}>Hair Salon, Masseuse, Beauty Salon</Text>
+                    <Text transform='uppercase' color='white' size={15}>Hair Salon, Masseuse, Beauty Salon</Text>
                 </div>
                 <Text size={70} h1 color="#F7E5C1">Find a service</Text>
                 <Text size ={70} h1 color="#F7E5C1">close to you</Text>
@@ -48,7 +46,7 @@ function Hero(){
             </div>
             <div className={style.last_pading}></div>
         </div>
-    );
+  )
 }
 
-export default Hero;
+export default Hero

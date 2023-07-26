@@ -43,6 +43,6 @@ module.exports = {
         "i18next/no-literal-string": "error",
     },
     globals: {
-        '__IS_DEV__': true,
+        __IS_DEV__: true,
     }
 }

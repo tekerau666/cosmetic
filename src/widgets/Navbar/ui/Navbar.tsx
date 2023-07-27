@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import {MemoryRouter} from "react-router-dom";
 
 interface NavbarProps {
   className?: string
@@ -10,7 +9,6 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
     //TODO: Реализовать декоратор RouterDecorator в preview.ts чтобы не использоваться <MemoryRouter>
   return (
-      <MemoryRouter>
         <div className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <AppLink theme={AppLinkTheme.SECONDARY} to={'/'} className={cls.mainLink}>
@@ -21,6 +19,5 @@ export const Navbar = ({ className }: NavbarProps) => {
                 </AppLink>
             </div>
         </div>
-      </MemoryRouter>
   )
 }

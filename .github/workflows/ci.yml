@@ -34,4 +34,6 @@ jobs:
         if: always()
       - name: screenshot tests
         run: npm run screenshot:ci
+        if: always()
+
 

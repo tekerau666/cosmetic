@@ -1,5 +1,5 @@
 name: lints, tests, building
-run-name: sidebar changes
+run-name: rename scripts
 on:
   push:
     branches: [ master ]
@@ -29,11 +29,11 @@ jobs:
       - name: unit tests
         run: npm run unit
         if: always()
-      - name: storybook build
+      - name: npm run srbk:build
         run: npm run storybook:build
         if: always()
       - name: screenshot tests
-        run: npm run screenshot:ci
+        run: npm run loki:ci
         if: always()
 
 

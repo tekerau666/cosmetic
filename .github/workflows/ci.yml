@@ -1,5 +1,5 @@
 name: lints, tests, building
-run-name: testing build:dev
+run-name: sidebar changes
 on:
   push:
     branches: [ master ]
@@ -19,16 +19,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install node-modules
         run: npm install --force
-      - name: build production project
-        run: npm run build:dev
+        if: always()
       - name: linting typescript
         run: npm run lint:ts
+        if: always()
       - name: linting scss
         run: npm run lint:scss
+        if: always()
       - name: unit tests
         run: npm run unit
+        if: always()
       - name: storybook build
         run: npm run storybook:build
+        if: always()
       - name: screenshot tests
         run: npm run screenshot:ci
 

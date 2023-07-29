@@ -1,5 +1,5 @@
 name: lints, tests, building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: testing build:dev
 on:
   push:
     branches: [ master ]
@@ -20,7 +20,7 @@ jobs:
       - name: install node-modules
         run: npm install --force
       - name: build production project
-        run: npm run build:prod
+        run: npm run build:dev
       - name: linting typescript
         run: npm run lint:ts
       - name: linting scss

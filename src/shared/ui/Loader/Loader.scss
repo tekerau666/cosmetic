@@ -1,3 +1,4 @@
+
 .loader {
   color: var(--inverted-bg-color);
   font-size: 45px;
@@ -8,7 +9,7 @@
   border-radius: 50%;
   position: relative;
   transform: translateZ(0);
-  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+  animation: mlt-shd-spin 1.7s infinite ease, round 1.7s infinite ease;
 }
 
 @keyframes mlt-shd-spin {

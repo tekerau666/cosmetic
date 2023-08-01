@@ -20,7 +20,11 @@ module.exports = {
     // "tsconfigRootDir": __dirname
   },
 
-  "plugins": ["react", ["i18next"]],
+  "plugins": [
+      "react",
+      ["i18next"],
+      "react-hooks",
+  ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -32,7 +36,9 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/naming-convention": "warn",
     "i18next/no-literal-string": "error",
-    "eslint eol-last": ["error", "always"]
+    "eslint eol-last": ["error", "always"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
   globals: {
     __IS_DEV__: true

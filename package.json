@@ -16,7 +16,7 @@
     "srbk:build": "storybook build -c ./config/storybook",
     "loki": "npx loki test",
     "loki:ok": "npx loki approve",
-    "loki:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "loki:ci": "loki --requireReference --reactUri file:./storybook-static",
     "comment": "перед запуском reg-cli скриптов необходимо запустить сторибук",
     "reg-cli:json": "node scripts/generate-visual-json-report.js",
     "reg-cli:html": "reg-cli --from .loki/report.json --report .loki/report.html"
@@ -60,6 +60,7 @@
     "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
@@ -86,6 +87,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.13",
+    "@storybook/preset-react-webpack": "^7.1.1",
     "i18next": "^21.6.11",
     "i18next-browser-languagedetector": "^6.1.3",
     "i18next-http-backend": "^1.3.2",

@@ -2,24 +2,31 @@
 import {FC, ReactNode, useCallback, useEffect, useRef, useState} from "react";
 import {classNames} from "../../lib/classNames/classNames"
  import {Portal} from "shared/ui/Portal/Portal";
- import {useTheme} from "app/providers/ThemeProvider";
 
 
 interface ModalProps {
     children?: ReactNode
     className?: string,
     isOpen?: boolean,
-    onClose?: () => void
+    onClose?: () => void,
+    lazy?: boolean,
 }
 
 const ANIMATION_TIME = 300
 
-export const Modal: FC<ModalProps> = ({children, className, isOpen, onClose}) => {
+export const Modal: FC<ModalProps> = ({children, className, isOpen, onClose, lazy}) => {
 
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>()
-    
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen]);
+
     const closeModal = useCallback(() => {
         if (onClose) {
             setIsClosing(true)
@@ -55,6 +62,11 @@ export const Modal: FC<ModalProps> = ({children, className, isOpen, onClose}) =>
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     }
+
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <Portal>
             <div

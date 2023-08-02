@@ -16,6 +16,8 @@ server.use(async (req, res, next) => {
     next();
 });
 
+// Поиск пользователя с БД и проверка пароля
+
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
@@ -36,6 +38,8 @@ server.post('/login', (req, res) => {
         return res.status(500).json({ message: e.message });
     }
 });
+
+// Проверка авторизации
 
 server.use((req, res, next) => {
     if (!req.headers.authorization) {

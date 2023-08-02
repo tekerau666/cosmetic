@@ -1,0 +1,17 @@
+.InputWrapper {
+  display: flex;
+}
+
+.input {
+  background: var(--inverted-bg-color);
+  border: none;
+  border-radius: 5000px;
+  padding: 10px;
+  color: var(--inverted-primary-color);
+}
+
+.placeholder {
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}

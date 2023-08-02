@@ -20,7 +20,8 @@
     "loki:ci": "loki --requireReference --reactUri file:./storybook-static",
     "comment": "перед запуском reg-cli скриптов необходимо запустить сторибук",
     "reg-cli:json": "node scripts/generate-visual-json-report.js",
-    "reg-cli:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+    "reg-cli:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -85,7 +86,8 @@
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.9.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.7.4",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.13",

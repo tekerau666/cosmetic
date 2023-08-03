@@ -1,7 +1,7 @@
-import {CounterSchema} from "entities/Couter/modal/types/counterSchema";
-import {UserSchema} from "entities/User";
+import {UserSchema} from "../../../../entities/User/index";
+import {LoginSchema} from "features/AuthByUsername";
 
 export interface StateSchema {
-    counter: CounterSchema,
     user: UserSchema
+    loginForm: LoginSchema
 }

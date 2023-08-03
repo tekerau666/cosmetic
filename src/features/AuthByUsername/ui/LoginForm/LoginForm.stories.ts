@@ -1,7 +1,8 @@
 import {Meta, StoryObj} from "@storybook/react";
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 import {LoginForm} from "./LoginForm";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator";
 
 
 const meta = {
@@ -19,4 +20,4 @@ export const Primary: Story = {
         children: 'Text'
     },
 };
-Primary.decorators = [ThemeDecorator(Theme.LIGHT)]
+Primary.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({ loginForm: {username: '123', password: '123'} })];

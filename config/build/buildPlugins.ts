@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 
 export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html
     }),
@@ -18,11 +18,16 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       __IS_DEV__: JSON.stringify(isDev)
     }),
       // TODO: Hot и BundleAnalyzer покрыть условием, чтобы компилились только при дев сборке
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin(
-        {
-          openAnalyzer: false,
-        }
-    )
+
   ]
+  plugins.push(new BundleAnalyzerPlugin(
+      {
+        openAnalyzer: false,
+      }
+  ))
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
+
+  }
+  return plugins;
 }

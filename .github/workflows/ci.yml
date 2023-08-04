@@ -1,5 +1,5 @@
 name: lints, tests, building
-run-name: CI
+run-name: async reducers
 on:
   push:
     branches: [ master ]

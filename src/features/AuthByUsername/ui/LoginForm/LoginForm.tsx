@@ -29,7 +29,12 @@ const LoginForm:FC<LoginFormProps> = memo(({ className }) => {
 
 	useEffect(() => {
 		store.reducerManager.add('loginForm', loginReducer)
-		return () => { store.reducerManager.remove('loginForm') }
+		dispatch({type: "@INIT login reducer"})
+		return () => {
+			store.reducerManager.remove('loginForm')
+			dispatch({type: "@DESTROY login reducer"})
+		}
+
 	}, []);
 
 	const onChangeUsername = useCallback((value) => {

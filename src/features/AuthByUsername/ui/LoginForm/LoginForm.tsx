@@ -12,10 +12,14 @@ import {getLoginUsername} from "../../modal/selectors/getLoginUsername/getLoginU
 import {getLoginPassword} from "../../modal/selectors/getLoginPassword/getLoginPassword";
 import {getLoginIsLoading} from "../../modal/selectors/getLoginIsLoading/getLoginIsLoading";
 import {getLoginError} from "../../modal/selectors/getLoginError/getLoginError";
-import {DynamicModuleLoader} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 export interface LoginFormProps {
 	className?: string,
+}
+
+const initialReducers:ReducersList = {
+	loginForm: loginReducer,
 }
 
 const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
@@ -40,7 +44,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
 	}, [dispatch, username, password])
 
 	return (
-		<DynamicModuleLoader reducers={loginReducer} removeAfterUnmount={true}>
+		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
 			<div className={classNames(cls.LoginForm, {}, [className])}>
 				<Text title={t('Форма авторизации')}/>
 				{error &&

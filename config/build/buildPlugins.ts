@@ -20,14 +20,13 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
       // TODO: Hot и BundleAnalyzer покрыть условием, чтобы компилились только при дев сборке
 
   ]
-  plugins.push(new BundleAnalyzerPlugin(
-      {
-        openAnalyzer: false,
-      }
-  ))
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())
-
+    plugins.push(new BundleAnalyzerPlugin(
+        {
+          openAnalyzer: false,
+        }
+    ))
   }
   return plugins;
 }

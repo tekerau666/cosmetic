@@ -16,7 +16,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {
-    },
+    args: {},
 };
 Primary.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({ loginForm: {username: '123', password: '123'} })];

@@ -4,7 +4,6 @@ import {AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject} fro
 
 export interface StateSchema {
     user: UserSchema
-
     //async reducers
     loginForm?: LoginSchema
 }

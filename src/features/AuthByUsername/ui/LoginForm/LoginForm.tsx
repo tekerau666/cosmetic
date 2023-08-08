@@ -28,7 +28,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
 	const username = useSelector(getLoginUsername)
 	const password = useSelector(getLoginPassword)
 	const isLoading = useSelector(getLoginIsLoading)
-	const error 	 = useSelector(getLoginError)
+	const error = useSelector(getLoginError)
 
 	const onChangeUsername = useCallback((value) => {
 		dispatch(loginActions.setUsername(value))

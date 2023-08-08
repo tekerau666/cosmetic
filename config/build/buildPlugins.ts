@@ -17,8 +17,6 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): webpack.WebpackPl
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-      // TODO: Hot и BundleAnalyzer покрыть условием, чтобы компилились только при дев сборке
-
   ]
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())

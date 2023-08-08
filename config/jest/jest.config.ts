@@ -59,6 +59,7 @@ const config: Config = {
         '<rootDir>/src/**/*(*.)@(spec|test|).[tj]s?(x)'
     ],
     moduleNameMapper: {
+        'src/(.*)': '<rootDir>/src/$1',
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestMock.tsx')
     },

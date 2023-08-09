@@ -1,31 +1,39 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es2021": true
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true
   },
-  "extends": ["standard-with-typescript", "plugin:react/recommended", "plugin:storybook/recommended"],
-  "overrides": [{
-    "env": {
-      "node": true
+  extends: [
+      "standard-with-typescript",
+      "plugin:react/recommended",
+      "plugin:storybook/recommended",
+      "plugin:i18next/recommended",
+  ],
+  overrides: [
+    {
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+        'max-len': 'off',
+      },
     },
-    "files": [".eslintrc.{js,cjs}"],
-    "parserOptions": {
-      "sourceType": "script"
-    }
-  }],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
     "project": "./tsconfig.json"
     // "tsconfigRootDir": __dirname
   },
 
-  "plugins": [
+  plugins: [
       "react",
       ["i18next"],
+      '@typescript-eslint',
       "react-hooks",
   ],
-  "rules": {
+  rules: {
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",

@@ -8,9 +8,7 @@ import {StoreDecorator} from "shared/config/storybook/StoreDecorator";
 const meta = {
     title: 'widgets/Navbar',
     component: Navbar,
-    parameters: {
-        layout: 'centered',
-    },
+    parameters: {},
     tags: ['autodocs'],
 } satisfies Meta<typeof Navbar>;
 

@@ -23,8 +23,8 @@ export const Navbar = ({className}: NavbarProps) => {
     const onShowModal = useCallback(() => {
         setIsAuthModal(true)
     }, [])
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
+    const onLogout = useCallback( async () => {
+        const result = await dispatch(userActions.logout())
     }, [])
 
     if (isAuth) {

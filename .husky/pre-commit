@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 #npm run lint:scss
-# npm run unit
-# npm run srbk:build
+#npm run unit
+#npm run srbk:build

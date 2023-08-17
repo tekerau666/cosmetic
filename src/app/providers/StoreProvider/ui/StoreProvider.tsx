@@ -2,10 +2,8 @@ import {FC, ReactNode} from "react";
 import {Provider} from "react-redux";
 import {createReduxStore} from "app/providers/StoreProvider/config/store";
 import {StateSchema} from "app/providers/StoreProvider/config/StateSchema";
-import {DeepPartial, ReducersMapObject} from "@reduxjs/toolkit";
 import {useNavigate} from 'react-router-dom'
-import {To} from "@remix-run/router";
-import {NavigateOptions} from "react-router/dist/lib/context";
+import {ReducersMapObject} from "@reduxjs/toolkit";
 
 interface StoreProviderProps {
     children: ReactNode,

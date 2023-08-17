@@ -1,6 +1,6 @@
  import cls from './Modal.module.scss'
-import {FC, ReactNode, useCallback, useEffect, useRef, useState} from "react";
-import {classNames} from "../../lib/classNames/classNames"
+import {FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState} from "react";
+import {classNames, Mods} from "../../lib/classNames/classNames"
  import {Portal} from "shared/ui/Portal/Portal";
 
 
@@ -15,11 +15,9 @@ interface ModalProps {
 const ANIMATION_TIME = 300
 
 export const Modal: FC<ModalProps> = ({children, className, isOpen, onClose, lazy}) => {
-
-
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>()
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     useEffect(() => {
         if (isOpen) {
@@ -58,7 +56,7 @@ export const Modal: FC<ModalProps> = ({children, className, isOpen, onClose, laz
     }, [isOpen, onKeyDown]);
 
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     }

@@ -22,8 +22,6 @@ interface TextProps {
     align?: TextAlign
 }
 
-
-
 export const Text: FC<TextProps> = ({title, text, theme = TextTheme.PRIMARY, className, align = TextAlign.LEFT}: TextProps) => {
     const mods: Mods = {
         [cls[theme]]: true,

@@ -19,10 +19,12 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({className}) => {
     const readonly = useSelector(getProfileReadonly)
     const dispatch = useAppDispatch()
     const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true))
+        dispatch(profileActions.setReadonly(false))
     },[])
     const onCanceled = useCallback(() => {
-        dispatch(profileActions.setReadonly(false))
+        dispatch(profileActions.canceledEdit())
+    },[])
+    const onSave = useCallback(() => {
     },[])
 
     return (
@@ -30,15 +32,21 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({className}) => {
             <Text title={t('Профиль пользователя')}/>
             {readonly ?
                 (
-                <Button theme={ButtonTheme.OUTLINE} className={cls.btn} onClick={onCanceled}>
+                <Button theme={ButtonTheme.OUTLINE} className={cls.btn} onClick={onEdit}>
                     {t('Редактировать')}
                 </Button>
                 )
                 :
                 (
-                <Button theme={ButtonTheme.OUTLINE} className={cls.btn} onClick={onEdit}>
-                    {t('Отменить')}
-                </Button>
+                <>
+                   <Button theme={ButtonTheme.OUTLINE_REJECT} className={cls.btn} onClick={onCanceled}>
+                         {t('Отменить')}
+                   </Button>
+                   <Button theme={ButtonTheme.OUTLINE} className={cls.saveBtn} onClick={onSave}>
+                         {t('Сохранить')}
+                   </Button>
+                </>
+
                 )
             }
         </div>

@@ -14,7 +14,13 @@ interface ProfileCardProps {
 	className?: string,
     data?: Profile,
     isLoading: boolean | undefined,
-    error?: string
+    error?: string,
+    changeLastName?: (value: string) => void,
+    changeFistName?: (value: string) => void,
+    changeCity?: (value: string) => void,
+    changeAge?: (value: string) => void
+    changeLogin?: (value: string) => void,
+    readonly?: boolean
 }
 
 export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
@@ -22,10 +28,15 @@ export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
         className,
         data,
         isLoading,
-        error
+        error,
+        changeLastName,
+        changeFistName,
+        changeAge,
+        changeCity,
+        changeLogin,
+        readonly,
     } = props
 	const { t } = useTranslation('profile')
-    const readonly = useSelector(getProfileReadonly)
     if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, {[cls.loading]: true}, [className])}>
@@ -42,6 +53,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
                     text={t('Попробуйте перезагрузить страницу')}
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
+
                 />
             </div>
         )
@@ -54,12 +66,38 @@ export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
                     value={data?.firstName}
                     placeholder={t('Имя')}
                     className={cls.input}
+                    onChange={changeFistName}
+                    readonly={readonly}
                 />
                 <Input
                     value={data?.lastName}
                     placeholder={t('Фамилия')}
                     className={cls.input}
+                    onChange={changeLastName}
+                    readonly={readonly}
                 />
+                <Input
+                    value={data?.age}
+                    placeholder={t('Возраст')}
+                    className={cls.input}
+                    onChange={changeAge}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('Город')}
+                    className={cls.input}
+                    onChange={changeCity}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.username}
+                    placeholder={t('Логин')}
+                    className={cls.input}
+                    onChange={changeLogin}
+                    readonly={readonly}
+                />
+
             </div>
 		</div>
 	)

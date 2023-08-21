@@ -39,7 +39,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
         dispatch(profileActions.updateProfileData({lastName: value || ''}))
     },[dispatch])
 
-    const changeAge = useCallback((value: number) => {
+    const changeAge = useCallback((value: string) => {
         dispatch(profileActions.updateProfileData({age: Number(value) || 0}))
     },[dispatch])
 
@@ -49,6 +49,10 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
 
     const changeLogin = useCallback((value: string) => {
         dispatch(profileActions.updateProfileData({username: value || ''}))
+    },[dispatch])
+
+    const changeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.updateProfileData({avatar: value || ''}))
     },[dispatch])
 
     return (
@@ -64,6 +68,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
                     changeAge={changeAge}
                     changeCity={changeCity}
                     changeLogin={changeLogin}
+                    changeAvatar={changeAvatar}
                     readonly={readonly}
                 />
             </div>

@@ -7,7 +7,7 @@ import {Button, ButtonTheme} from "shared/ui/Button/Button";
 import {useSelector} from "react-redux";
 import {getProfileReadonly} from "entities/Profile/modal/selectors/getProfileReadonly/getProfileReadonly";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
-import {profileActions} from "entities/Profile";
+import {profileActions, updateProfileData} from "entities/Profile";
 
 
 interface ProfilePageHeaderProps {
@@ -25,6 +25,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({className}) => {
         dispatch(profileActions.canceledEdit())
     },[])
     const onSave = useCallback(() => {
+        dispatch(updateProfileData())
     },[])
 
     return (
@@ -46,7 +47,6 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({className}) => {
                          {t('Сохранить')}
                    </Button>
                 </>
-
                 )
             }
         </div>

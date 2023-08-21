@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-      "firstName": "Pavel",
-      "lastName": "Vocnel",
-      "age": 14,
-      "currency": "RUB",
-      "country": "RUSSIA",
-      "city": "Moscow",
-      "username": "admin",
-      "avatar": "https://balakovo24.ru/b24/uploads/2021/09/владислав-поздняков.jpg"
+    "firstName": "Pavel",
+    "lastName": "Vocnel",
+    "age": 23,
+    "currency": "RUB",
+    "country": "RUSSIA",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://balakovo24.ru/b24/uploads/2021/09/владислав-поздняков.jpg"
   }
 }

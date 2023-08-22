@@ -52,6 +52,7 @@ export const profileSlice = createSlice({
                 state.isLoading = false
                 state.data = action.payload
                 state.form = action.payload
+                state.readonly = true
                 console.log(state.form)
             })
             .addCase(updateProfileData.rejected, (state, action) => {

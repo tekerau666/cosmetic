@@ -14,15 +14,19 @@ interface SelectProps {
     options?: SelectOption[],
     value?: string
     onChange?: (value: string) => void
+    readonly?: boolean
 }
 
 export const Select: FC<SelectProps> = memo((props) => {
+    const {t} = useTranslation()
+
     const {
         className,
         label,
         options,
         value,
-        onChange
+        onChange,
+        readonly,
     } = props
 
     const optionList = useMemo(() => {
@@ -36,22 +40,24 @@ export const Select: FC<SelectProps> = memo((props) => {
             </option>
         )
     }, [options]);
-
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value)
+
     }
 
-    const {t} = useTranslation()
-    const mods: Mods = {}
+    const mods: Mods = {
+        [cls.readonly]: readonly
+    }
 
     return (
         <div className={classNames(cls.Select, mods, [className])}>
             {label &&
                 <span className={cls.label}>
-                    {label + ">"}
+                    {label + ":"}
                 </span>
             }
             <select
+                disabled={readonly}
                 className={cls.select}
                 value={value}
                 onChange={onChangeHandler}

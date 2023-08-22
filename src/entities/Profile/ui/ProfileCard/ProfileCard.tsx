@@ -6,9 +6,11 @@ import {Text, TextAlign, TextTheme} from "shared/ui/Text/Text";
 import {Input} from "shared/ui/Input/Input";
 import {Profile} from "../../modal/types/Profile";
 import {Loader} from "shared/ui/Loader/Loader";
-import {useSelector} from "react-redux";
-import {getProfileReadonly} from "entities/Profile/modal/selectors/getProfileReadonly/getProfileReadonly";
 import {Avatar} from "shared/ui/Avatar/Avatar";
+import {Currency, CurrencySelect} from "entities/Currency";
+
+import {Country} from "entities/Country/model/types/country";
+import {CountrySelect} from "entities/Country/ui/CountrySelect/CountrySelect";
 
 
 interface ProfileCardProps {
@@ -23,6 +25,8 @@ interface ProfileCardProps {
     changeLogin?: (value: string) => void,
     changeAvatar?: (value: string) => void,
     changeUsername?: (value: string) => void,
+    changeCurrency?: (currency: Currency) => void,
+    changeCountry?: (country: Country) => void,
     readonly?: boolean
 }
 
@@ -38,6 +42,8 @@ export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
         changeCity,
         changeLogin,
         changeAvatar,
+        changeCurrency,
+        changeCountry,
         readonly,
     } = props
 	const { t } = useTranslation('profile')
@@ -120,7 +126,18 @@ export const ProfileCard:FC<ProfileCardProps> = (props: ProfileCardProps) => {
                     onChange={changeAvatar}
                     readonly={readonly}
                 />
-
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={changeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={cls.input}
+                    value={data?.country}
+                    onChange={changeCountry}
+                    readonly={readonly}
+                />
             </div>
 		</div>
 	)

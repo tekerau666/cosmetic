@@ -5,13 +5,13 @@ import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicMo
 import {fetchProfileData, profileActions, ProfileCard, profileReducer} from "entities/Profile";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
 import {useSelector} from "react-redux";
-import {getProfileData} from "entities/Profile/modal/selectors/getProfileData/getProfileData";
 import {getProfileError} from "entities/Profile/modal/selectors/getProfileError/getProfileError";
 import {getProfileIsLoading} from "entities/Profile/modal/selectors/getProfileIsLoading/getProfileIsLoading";
 import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
-import {Country, Currency} from "shared/const/common";
 import {getProfileReadonly} from "entities/Profile/modal/selectors/getProfileReadonly/getProfileReadonly";
 import {getProfileForm} from "entities/Profile/modal/selectors/getProfileForm/getProfileForm";
+import {Currency} from "entities/Currency/modal/types/currency";
+import {Country} from "entities/Country/model/types/country";
 
 const reducer: ReducersList = {
 	profile: profileReducer
@@ -55,6 +55,14 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
         dispatch(profileActions.updateProfileData({avatar: value || ''}))
     },[dispatch])
 
+    const changeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfileData({ currency }))
+    },[dispatch])
+
+    const changeCountry = useCallback((country: Country) => {
+        dispatch(profileActions.updateProfileData({ country }))
+    },[dispatch])
+
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount >
             <div className={classNames(cls.ProfilePage, {}, [className])}>
@@ -69,6 +77,8 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
                     changeCity={changeCity}
                     changeLogin={changeLogin}
                     changeAvatar={changeAvatar}
+                    changeCurrency={changeCurrency}
+                    changeCountry={changeCountry}
                     readonly={readonly}
                 />
             </div>

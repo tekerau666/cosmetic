@@ -2,7 +2,14 @@ import cls from './ProfilePage.module.scss'
 import {FC, useCallback, useEffect} from "react";
 import {classNames} from "shared/lib/classNames/classNames"
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {fetchProfileData, profileActions, ProfileCard, profileReducer} from "entities/Profile";
+import {
+    fetchProfileData,
+    getProfileValidateError,
+    profileActions,
+    ProfileCard,
+    profileReducer,
+    ValidateProfileError
+} from "entities/Profile";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
 import {useSelector} from "react-redux";
 import {getProfileError} from "entities/Profile/modal/selectors/getProfileError/getProfileError";
@@ -12,6 +19,8 @@ import {getProfileReadonly} from "entities/Profile/modal/selectors/getProfileRea
 import {getProfileForm} from "entities/Profile/modal/selectors/getProfileForm/getProfileForm";
 import {Currency} from "entities/Currency/modal/types/currency";
 import {Country} from "entities/Country/model/types/country";
+import {Text, TextTheme} from "shared/ui/Text/Text";
+import {useTranslation} from "react-i18next";
 
 const reducer: ReducersList = {
 	profile: profileReducer
@@ -22,13 +31,29 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
+    const { t } = useTranslation('profile')
     const dispatch = useAppDispatch()
     const formData = useSelector(getProfileForm)
     const error = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
+    const validateErrors = useSelector(getProfileValidateError)
+
+    const validateErrorsTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Произошла ошибка на сервере'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_USERNAME]: t('Некорректный логин'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректно введена страна'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные данные'),
+        [ValidateProfileError.INCORRECT_CURRENCY]: t('Некорректная валюта'),
+        [ValidateProfileError.INCORRECT_AVATAR]: t('Некорректный аватар'),
+        [ValidateProfileError.INCORRECT_CITY]: t('Некорректный город'),
+    }
+
     useEffect(() => {
-        dispatch(fetchProfileData())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData())
+        }
     }, []);
 
     const changeFistName = useCallback((value: string) => {
@@ -67,6 +92,13 @@ const ProfilePage: FC<ProfilePageProps> = ({ className}) => {
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount >
             <div className={classNames(cls.ProfilePage, {}, [className])}>
                 <ProfilePageHeader/>
+                {validateErrors?.length && validateErrors.map(err => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslates[err]}
+                    />
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

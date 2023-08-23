@@ -7,10 +7,10 @@ import {Input} from "shared/ui/Input/Input";
 import {Profile} from "../../modal/types/Profile";
 import {Loader} from "shared/ui/Loader/Loader";
 import {Avatar} from "shared/ui/Avatar/Avatar";
-import {Currency, CurrencySelect} from "entities/Currency";
+import {Currency, CurrencySelect} from "../../../../entities/Currency";
 
-import {Country} from "entities/Country/model/types/country";
-import {CountrySelect} from "entities/Country/ui/CountrySelect/CountrySelect";
+import {Country} from "../../../../entities/Country/model/types/country";
+import {CountrySelect} from "../../../../entities/Country/ui/CountrySelect/CountrySelect";
 
 
 interface ProfileCardProps {

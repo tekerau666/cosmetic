@@ -4,7 +4,6 @@ import {ThemeSwitcher} from 'shared/ui/ThemeSwitcher'
 import {LangSwitcher} from 'shared/ui/LangSwitcher/LangSwitcher'
 import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button'
 import {classNames} from "shared/lib/classNames/classNames";
-import {useTranslation} from "react-i18next";
 import {SidebarItemsList} from "widgets/Sidebar/model/items";
 import {SidebarItem} from "widgets/Sidebar/SidebarItem/SidebarItem";
 

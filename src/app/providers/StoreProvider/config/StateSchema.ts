@@ -1,10 +1,10 @@
-import {UserSchema} from "../../../../entities/User/index";
-import {LoginSchema} from "features/AuthByUsername";
-import {AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
-import {ProfileSchema} from "entities/Profile";
-import {AxiosInstance} from "axios";
-import {To} from "@remix-run/router";
-import {NavigateOptions} from "react-router/dist/lib/context";
+import {UserSchema} from '../../../../entities/User/index';
+import {LoginSchema} from 'features/AuthByUsername';
+import {AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject} from '@reduxjs/toolkit';
+import {ProfileSchema} from 'entities/Profile';
+import {AxiosInstance} from 'axios';
+import {To} from '@remix-run/router';
+import {NavigateOptions} from 'react-router/dist/lib/context';
 
 export interface StateSchema {
     user: UserSchema

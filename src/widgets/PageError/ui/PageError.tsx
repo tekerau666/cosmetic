@@ -1,8 +1,8 @@
-import cls from './PageError.module.scss'
-import {FC} from "react";
-import {classNames} from "shared/lib/classNames/classNames"
-import {useTranslation} from "react-i18next";
-import {Button} from "shared/ui/Button/Button";
+import cls from './PageError.module.scss';
+import {FC} from 'react';
+import {classNames} from 'shared/lib/classNames/classNames';
+import {useTranslation} from 'react-i18next';
+import {Button} from 'shared/ui/Button/Button';
 
 
 
@@ -12,7 +12,7 @@ interface PageErrorProps {
 
 export const PageError:FC<PageErrorProps> = ({ children, className }) => {
 
-    const { t } = useTranslation()
+	const { t } = useTranslation();
 
 	return (
 		<>
@@ -20,10 +20,10 @@ export const PageError:FC<PageErrorProps> = ({ children, className }) => {
 				className={classNames(cls.PageError, {}, [className])}
 			>
 				<p>{t('Произошла непредвиденная ошибка')}</p>
-                <Button onClick={() => window.location.reload()}>
-                    {t('Обновить страницу')}
-                </Button>
+				<Button onClick={() => window.location.reload()}>
+					{t('Обновить страницу')}
+				</Button>
 			</div>
 		</>
-	)
-}
+	);
+};

@@ -1,5 +1,5 @@
-import {Currency} from "entities/Currency/modal/types/currency";
-import {Country} from "entities/Country/model/types/country";
+import {Currency} from 'entities/Currency/modal/types/currency';
+import {Country} from 'entities/Country/model/types/country';
 
 export enum ValidateProfileError {
     INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',

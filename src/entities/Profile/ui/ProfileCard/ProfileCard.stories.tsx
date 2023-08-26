@@ -1,1 +1,2 @@
 // TODO: потом :)
+export default {};

@@ -1,8 +1,8 @@
-import {FC, Suspense} from "react";
-import {classNames} from "shared/lib/classNames/classNames"
-import {Modal} from "shared/ui/Modal/Modal";
-import {Loader} from "shared/ui/Loader/Loader";
-import {LoginFormAsync} from "features/AuthByUsername/ui/LoginForm/LoginForm.async";
+import {FC, Suspense} from 'react';
+import {classNames} from 'shared/lib/classNames/classNames';
+import {Modal} from 'shared/ui/Modal/Modal';
+import {Loader} from 'shared/ui/Loader/Loader';
+import {LoginFormAsync} from 'features/AuthByUsername/ui/LoginForm/LoginForm.async';
 
 
 
@@ -20,10 +20,10 @@ export const LoginModal:FC<LoginModalProps> = ({ isOpen, onClose, className }) =
 			onClose={onClose}
 			lazy
 		>
-            <Suspense fallback={<Loader/>}>
+			<Suspense fallback={<Loader/>}>
 				<LoginFormAsync onSuccess={onClose}/>
 			</Suspense>
 		</Modal>
-	)
-}
+	);
+};
 

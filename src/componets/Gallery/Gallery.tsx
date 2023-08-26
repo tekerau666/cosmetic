@@ -3,13 +3,13 @@ import React from 'react';
 import style from './Gallery.module.scss';
 
 function Gallery() {
-    return (
-        <>
-            <Text className={style.text}>
+	return (
+		<>
+			<Text className={style.text}>
                 Мы опытные специалисты, которые сделают вас невероятно Красивыми
-            </Text>
-        </>
-    )
+			</Text>
+		</>
+	);
 }
 
-export default Gallery
+export default Gallery;

@@ -1,6 +1,6 @@
-import {classNames, Mods} from 'shared/lib/classNames/classNames'
-import cls from './Button.module.scss'
-import {type ButtonHTMLAttributes, memo, ReactNode} from 'react'
+import {classNames, Mods} from 'shared/lib/classNames/classNames';
+import cls from './Button.module.scss';
+import {type ButtonHTMLAttributes, memo, ReactNode} from 'react';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
@@ -27,31 +27,31 @@ export enum ButtonSize {
 }
 
 export const Button = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        ...otherProps
-    } = props
+	const {
+		className,
+		children,
+		theme = ButtonTheme.OUTLINE,
+		square,
+		size = ButtonSize.M,
+		disabled,
+		...otherProps
+	} = props;
 
-    const mods: Mods = {
-        [cls[theme]]: true,
-        [cls.square]: square,
-        [cls[size]]: true,
-        [cls.disabled]: disabled,
-    }
-    return (
-        <>
-            <button
-                className={classNames(cls.Button, mods, [className])}
-                disabled={disabled}
-                {...otherProps}
-            >
-                {children}
-            </button>
-        </>
-    )
-})
+	const mods: Mods = {
+		[cls[theme]]: true,
+		[cls.square]: square,
+		[cls[size]]: true,
+		[cls.disabled]: disabled,
+	};
+	return (
+		<>
+			<button
+				className={classNames(cls.Button, mods, [className])}
+				disabled={disabled}
+				{...otherProps}
+			>
+				{children}
+			</button>
+		</>
+	);
+});

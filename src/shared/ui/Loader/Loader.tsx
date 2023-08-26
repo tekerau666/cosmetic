@@ -1,6 +1,6 @@
-import './Loader.scss'
-import {FC} from "react";
-import {classNames} from "shared/lib/classNames/classNames"
+import './Loader.scss';
+import {FC} from 'react';
+import {classNames} from 'shared/lib/classNames/classNames';
 
 
 interface LoaderProps {
@@ -8,11 +8,11 @@ interface LoaderProps {
 }
 
 export const Loader: FC<LoaderProps> = ({children, className}) => {
-    return (
-        <div
-            className={classNames('loader', {}, [className])}
-        >
-            <span className="loader"></span>
-        </div>
-    )
-}
+	return (
+		<div
+			className={classNames('loader', {}, [className])}
+		>
+			<span className="loader"></span>
+		</div>
+	);
+};

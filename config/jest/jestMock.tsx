@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const jestMock = function () {
-    return <div/>
-}
+	return <div/>;
+};
 
-export default jestMock
+export default jestMock;

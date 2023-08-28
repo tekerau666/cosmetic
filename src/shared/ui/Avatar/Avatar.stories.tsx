@@ -1,30 +1,26 @@
-import type {Meta, StoryObj} from '@storybook/react';
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator';
-import {Theme} from 'app/providers/ThemeProvider';
-import {RouterDecorator} from 'shared/config/storybook/RouterDecorator';
-import {Avatar} from 'shared/ui/Avatar/Avatar';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import AvatarImg from './storybook.jpg';
 
+export default {
+    title: 'shared/Avatar',
+    component: Avatar,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Avatar>;
 
-const meta = {
-	title: 'shared/ui/Avatar',
-	component: Avatar,
-	parameters: {},
-	tags: ['autodocs'],
-	args: {},
-} satisfies Meta<typeof Avatar>;
-export default meta;
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
-	args:{
-		src: 'https://i.ytimg.com/vi/jDft8HRlZlI/maxresdefault.jpg',
-		size: 200,
-		alt: 'avatar',
-	},
-	decorators: [RouterDecorator, ThemeDecorator(Theme.LIGHT)]
+export const Primary = Template.bind({});
+Primary.args = {
+    size: 150,
+    src: AvatarImg,
 };
 
-
-
-
+export const Small = Template.bind({});
+Small.args = {
+    size: 50,
+    src: AvatarImg,
+};

@@ -1,14 +1,15 @@
 const fs = require('fs');
-const jsonServer = require('json-server')
+const jsonServer = require('json-server');
 const path = require('path');
 
-const server = jsonServer.create()
+const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
+// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
         setTimeout(res, 800);
@@ -16,8 +17,7 @@ server.use(async (req, res, next) => {
     next();
 });
 
-// Поиск пользователя с БД и проверка пароля
-
+// Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
@@ -39,8 +39,8 @@ server.post('/login', (req, res) => {
     }
 });
 
-// Проверка авторизации
-
+// проверяем, авторизован ли пользователь
+// eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });
@@ -51,6 +51,8 @@ server.use((req, res, next) => {
 
 server.use(router);
 
-server.listen(1448, () => {
-    console.log('server is running on 1448 port');
+// запуск сервера
+server.listen(8000, () => {
+    // eslint-disable-next-line no-console
+    console.log('server is running on 8000 port');
 });

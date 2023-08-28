@@ -1,47 +1,46 @@
-import React, {ErrorInfo, ReactNode, Suspense} from 'react';
-import {withTranslation} from 'react-i18next';
-import * as https from 'https';
-import Hero from 'componets/Hero/Hero';
-import {PageError} from 'widgets/PageError/ui/PageError';
-import {PageLoader} from 'widgets/PageLoader/ui/PageLoader';
-
+import React, { ErrorInfo, ReactNode, Suspense } from 'react';
+import { ErrorPage } from 'widgets/ErrorPage/ui/ErrorPage';
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children: ReactNode;
 }
+
 interface ErrorBoundaryState {
-    hasError: boolean
+    hasError: boolean;
 }
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-	constructor(props: ErrorBoundaryProps) {
-		super(props);
-		this.state = { hasError: false };
-	}
 
-	static getDerivedStateFromError(error: Error) {
-		// Update state so the next render will show the fallback UI.
-		return { hasError: true };
-	}
+class ErrorBoundary
+    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+    constructor(props: ErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false };
+    }
 
-	componentDidCatch(error: Error, info: ErrorInfo) {
-		// You can also log the error to an error reporting services
-		console.log(error, info);
-	}
+    static getDerivedStateFromError(error: Error) {
+        // Update state so the next render will show the fallback UI.
+        return { hasError: true };
+    }
 
-	render() {
-		const { hasError } = this.state;
-		const { children } = this.props;
-		if (this.state.hasError) {
-			// You can render any custom fallback UI
-			return (
-				<Suspense fallback={<PageLoader/>}>
-					<PageError/>
-				</Suspense>
-			);
-		}
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        // You can also log the error to an error reporting service
+        console.log(error, errorInfo);
+    }
 
-		return children;
-	}
+    render() {
+        const { hasError } = this.state;
+        const { children } = this.props;
+
+        if (hasError) {
+            // You can render any custom fallback UI
+            return (
+                <Suspense fallback="">
+                    <ErrorPage />
+                </Suspense>
+            );
+        }
+
+        return children;
+    }
 }
 
 export default ErrorBoundary;

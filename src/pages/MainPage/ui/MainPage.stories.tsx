@@ -1,25 +1,22 @@
-import {Meta, StoryObj} from '@storybook/react';
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator';
-import {Theme} from 'app/providers/ThemeProvider';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import MainPage from './MainPage';
 
-const meta = {
-	title: 'pages/MainPage',
-	component: MainPage,
-	parameters: {},
-	tags: ['autodocs'],
-} satisfies Meta<typeof MainPage>;
-export default meta;
+export default {
+    title: 'pages/MainPage',
+    component: MainPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof MainPage>;
 
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
-export const Light: Story = {
-	args:{
-	}
-};
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
-export const Dark: Story = {
-	args:{
-	}
-};
+export const Normal = Template.bind({});
+Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

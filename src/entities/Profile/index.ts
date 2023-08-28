@@ -1,20 +1,29 @@
 export {
-	Profile,
-	ProfileSchema,
-	ValidateProfileError,
-} from './modal/types/profile';
+    Profile,
+    ProfileSchema,
+    ValidateProfileError,
+} from './model/types/profile';
 
 export {
-	profileActions,
-	profileReducer,
-} from './modal/slice/profileSlice';
+    profileActions,
+    profileReducer,
+} from './model/slice/profileSlice';
 
-export { fetchProfileData } from './modal/services/fetchProfileData/fetchProfileData';
+export {
+    fetchProfileData,
+} from './model/services/fetchProfileData/fetchProfileData';
 
-export { updateProfileData } from './modal/services/updateProfileData/updateProfileData';
+export {
+    updateProfileData,
+} from './model/services/updateProfileData/updateProfileData';
 
-export { ProfileCard } from './ui/ProfileCard/ProfileCard';
+export {
+    ProfileCard,
+} from './ui/ProfileCard/ProfileCard';
 
-export { getProfileValidateError } from './modal/selectors/getProfileValidateErrors/getProfileValidateError';
-
-export { validateProfileData } from './modal/services/validateProfileData/validateProfileData';
+export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
+export { getProfileData } from './model/selectors/getProfileData/getProfileData';
+export { getProfileError } from './model/selectors/getProfileError/getProfileError';
+export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';

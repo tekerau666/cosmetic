@@ -24,8 +24,15 @@
     bottom: 32px;
 }
 
+.items {
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
 .collapsed {
-    width: var(--sidebar-collapsed-width);
+    width: var(--sidebar-width-collapsed);
 
     .switchers {
         flex-direction: column;
@@ -35,5 +42,4 @@
     .lang {
         margin-left: 0;
     }
-
 }

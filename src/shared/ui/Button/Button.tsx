@@ -1,23 +1,14 @@
-import {classNames, Mods} from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import cls from './Button.module.scss';
-import {type ButtonHTMLAttributes, memo, ReactNode} from 'react';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
-    OUTLINE_REJECT = 'outline_reject',
+    OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
-}
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
-    theme?: ButtonTheme;
-    square?: boolean;
-    size?: ButtonSize;
-    disabled?: boolean;
-    children: ReactNode;
 }
 
 export enum ButtonSize {
@@ -26,32 +17,41 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-export const Button = memo((props: ButtonProps) => {
-	const {
-		className,
-		children,
-		theme = ButtonTheme.OUTLINE,
-		square,
-		size = ButtonSize.M,
-		disabled,
-		...otherProps
-	} = props;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
+}
 
-	const mods: Mods = {
-		[cls[theme]]: true,
-		[cls.square]: square,
-		[cls[size]]: true,
-		[cls.disabled]: disabled,
-	};
-	return (
-		<>
-			<button
-				className={classNames(cls.Button, mods, [className])}
-				disabled={disabled}
-				{...otherProps}
-			>
-				{children}
-			</button>
-		</>
-	);
+export const Button = memo((props: ButtonProps) => {
+    const {
+        className,
+        children,
+        theme = ButtonTheme.OUTLINE,
+        square,
+        disabled,
+        size = ButtonSize.M,
+        ...otherProps
+    } = props;
+
+    const mods: Mods = {
+        [cls[theme]]: true,
+        [cls.square]: square,
+        [cls[size]]: true,
+        [cls.disabled]: disabled,
+    };
+
+    return (
+        <button
+            type="button"
+            className={classNames(cls.Button, mods, [className])}
+            disabled={disabled}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    );
 });

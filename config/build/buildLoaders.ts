@@ -1,39 +1,41 @@
-import type webpack from 'webpack';
-import { type BuildOptions } from './types/config';
-import {buildCssLoader} from './loaders/buildCssLoader';
-import {buildBabelLoader} from './loaders/buildBabelLoader';
+import webpack from 'webpack';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { BuildOptions } from './types/config';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
-	const { isDev } = options;
-	const svgLoader = {
-		test: /\.svg$/,
-		use: ['@svgr/webpack']
-	};
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    const { isDev } = options;
 
-	const babelLoader = buildBabelLoader(options);
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
 
-	const cssLoader = buildCssLoader(isDev);
+    const babelLoader = buildBabelLoader(options);
 
-	const typescriptLoader = {
-		test: /\.tsx?$/,
-		use: 'ts-loader',
-		exclude: /node_modules/
-	};
+    const cssLoader = buildCssLoader(isDev);
 
-	const fileLoader = {
-		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-		use: [
-			{
-				loader: 'file-loader'
-			}
-		]
-	};
+    // Если не используем тайпскрипт - нужен babel-loader
+    const typescriptLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    };
 
-	return [
-		fileLoader,
-		svgLoader,
-		babelLoader,
-		typescriptLoader,
-		cssLoader
-	];
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
+
+    return [
+        fileLoader,
+        svgLoader,
+        babelLoader,
+        typescriptLoader,
+        cssLoader,
+    ];
 }

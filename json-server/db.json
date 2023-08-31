@@ -14,15 +14,76 @@
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": "1"
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "i wanna fuck fuck fuck",
+      "articleId": "2",
+      "userId": "2"
+    },
+    {
+      "id": "3",
+      "text": "pretty fortnite shit",
+      "articleId": "3",
+      "userId": "3"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "Что такое фурти или фортнайт",
+      "subtitle": "Описание",
+      "img": "https://i.ytimg.com/vi/1yaPuXDwsTE/maxresdefault.jpg",
+      "views": 1448,
+      "createdAt": "30.08.2023",
+      "type": ["Gaymes"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое фурти или фортнайт",
+          "paragraphs": [
+            "\nУже многое сказано о Fortnite, о её доходах, пользователях, бизнес-модели, истоках и многоплатформенности. Но вокруг всех этих историй слишком много ажиотажа. Самое главное то, как все эти достижения, дополненные остальной частью Epic Games, навечно сохранятся в индустрии развлечений.\n",
+            ",\nВ 2018 году можно было многое прочитать про Fortnite, и ещё большему у неё научиться. «Эта игра» и в самом деле является будущим индустрии развлечений (а также самой серьёзной угрозой для современных медиагигантов). Но, вероятно, не совсем в том смысле, в котором вы думаете. Реальные возможности Fortnite намного шире и значительней, чем тот эффект, который игра имеет сегодня. На самом деле, большинство рассказов об успехе Fortnite излишне броски, даже если в них критически воспринимается её долговременная эволюция.\n",
+            ",\nНам предстоит многое разобрать, поэтому для начала я проанализирую этот ажиотаж, а потом перейду к тому, во что превратится Fortnite и расскажу о том, почему Epic Games имеет уникальную возможность реализации этого потенциала."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://d2dpa77enk4uif.cloudfront.net/app/uploads/20190205132540/marshmello-fortnite-concert-show-replay-highlight-in-game-voice-real-time-couragejd-twitch3.jpg",
+          "title": "Fortnite — это будущее, но по довольно неожиданным причинам"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://browsifyapp.com/wp-content/uploads/2018/12/Photo-07-12-2018-14-16-29.jpg",
+          "title": "Загрузка..."
+        }
+      ]
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "tekerau",
+      "password": "123",
+      "role": "USER"
+    },
+    {
+      "id": "3",
+      "username": "user",
+      "password": "123",
+      "role": "USER"
     }
   ],
   "profile": {

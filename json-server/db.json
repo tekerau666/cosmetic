@@ -69,9 +69,10 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "tekerau",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://balakovo24.ru/b24/uploads/2021/09/владислав-поздняков.jpg"
     },
     {
       "id": "2",
@@ -81,9 +82,10 @@
     },
     {
       "id": "3",
-      "username": "user",
+      "username": "lev",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://sun9-64.userapi.com/impg/0fONoXlHc2CiUBwE7f42K8bPwc9oBaSyoDdDyw/-A-sxy6we3g.jpg?size=861x976&quality=95&sign=f9ebc552173568754d18929e1a8912e2&c_uniq_tag=6KvRsZWCWr32Np7Ie7KwNv-AopzERRbxAHnuinnsIpI&type=album"
     }
   ],
   "profile": {

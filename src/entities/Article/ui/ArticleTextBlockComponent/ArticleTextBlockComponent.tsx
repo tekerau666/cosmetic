@@ -1,17 +1,25 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { ArticleBlock, ArticleTextBlock } from 'entities/Article/model/types/article';
+import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponent {
-    className?: string,
+    className?: string;
+    block: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent: FC<ArticleTextBlockComponent> = ({ className }) => {
+export const ArticleTextBlockComponent: FC<ArticleTextBlockComponent> = ({ className, block }) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-            ArticleTextBlockComponent
+            {block.title && (
+                <Text title={block?.title} className={cls.title} />
+            )}
+            {block.paragraphs.map((paragraph, index) => (
+                <Text key={paragraph} text={paragraph} className={cls.paragraph} />
+            ))}
         </div>
     );
 };

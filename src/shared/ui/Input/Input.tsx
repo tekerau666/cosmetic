@@ -2,7 +2,7 @@ import {
     ChangeEvent, FC, InputHTMLAttributes, memo,
 } from 'react';
 import cls from './Input.module.scss';
-import { classNames, Mods } from '../../../../../cosmetic-cop/src/shared/lib/classNames/classNames';
+import { classNames, Mods } from '../../lib/classNames/classNames';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
